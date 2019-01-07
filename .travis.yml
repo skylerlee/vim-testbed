@@ -3,3 +3,11 @@ services:
   - docker
 before_install:
   - docker pull skylerlee/vim-testbed
+jobs:
+  include:
+    - env: VIM=vim73
+    - env: VIM=vim74
+    - env: VIM=vim8
+    - env: VIM=vim-latest
+script:
+  - docker run -it --rm skylerlee/vim-testbed $VIM --version
